@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="/libs/react.development.js"></script>
+  <script src="/libs/react-dom.development.js"></script>
+  <!-- jsxというhtmlに似たような構文をjavascriptのオブジェクトに変換する為のもの -->
+  <script src="/libs/babel-standalone.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="text/babel">
+    // POINT ReactをHTMLにマウントする書き方
+    const appEl = document.querySelector('#app');
+    const root = ReactDOM.createRoot(appEl);
+    // 以下jsx記法をjavascriptのコードにする為に、「<script type="text/babel">」を追加する。
+    root.render(<h1>こんにちは</h1>);
+    
+    // POINT React18以前の書き方
+    // ReactDOM.render(<h1>こんにちは</h1>, appEl)
+  </script>
+</body>
+</html>
