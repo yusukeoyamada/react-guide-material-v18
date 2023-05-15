@@ -7,6 +7,12 @@ const Example = () => {
       <Child />
       <Expression />
     </div>
+
+    // 以下でも良い
+    // <>
+    //   <Child />
+    //   <Expression />
+    // </>
   );
 };
 

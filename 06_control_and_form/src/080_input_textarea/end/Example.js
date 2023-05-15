@@ -8,6 +8,8 @@ const Example = () => {
   
   return (
     <div>
+      {/* labelのhtmlFor(jsx内だけ(forは他でもよく使うから)。htmlではfor。for)の値と、inputのidが一致していると、紐づけられる。 */}
+        {/* 紐づいたinputにフォーカスを充てる為にも使える */}
       <label htmlFor="456">ラベル</label>
       <div>
         <input

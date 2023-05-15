@@ -12,10 +12,11 @@ const Example = () => {
     <>
       {/* POINT 動的なスタイルの適用 */}
       {/* POINT クラスの付け外しに論理積 (&&) は使用してはいけません。
-      例） className={`btn ${isSelected && 'selected'}`}
-
-      isSelected が false の場合、 className='btn false' になってしまいます。 */}
+        例）className={`btn ${isSelected && 'selected'}`}
+          isSelected が false の場合、className='btn false' になってしまう為。
+      */}
       <button
+        // ``(テンプレートリテラル)の中でjsコードを使いたい場合は、${}で囲む。
         className={`btn ${isSelected ? "selected" : ""}`}
         onClick={clickHandler}
       >

@@ -2,8 +2,11 @@ import { useState } from "react";
 
 const Example = () => {
   // POINT useStateは[ 値、変更用の関数 ]を返す
+    // useState()の()には、初期値を入れる。
   // let valArry = useState();
+
   // POINT 分割代入で取得
+    // 配列の先頭から順に変数に代入する。useState()の返り値は、配列の為。
   let [val, setVal] = useState();
 
   return (

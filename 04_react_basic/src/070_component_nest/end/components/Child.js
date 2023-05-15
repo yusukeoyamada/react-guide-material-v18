@@ -1,4 +1,5 @@
 // POINT List コンポーネントを名前付き import
+  // 「.js」がなくとも、webpackというモジュールバンドラーが自動的に認識してくれる。
 import { List } from "./List";
 import "./Child.css";
 
@@ -15,7 +16,6 @@ const Child = () => {
 export default Child;
 
 /* POINT default export の別の記法
-
 export default () => {
   return (
     <div className="component">
@@ -24,5 +24,4 @@ export default () => {
     </div>
   );
 };
-
  */

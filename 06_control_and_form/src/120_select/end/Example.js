@@ -8,6 +8,7 @@ const Example = () => {
 
   return (
     <>
+      {/* selectのvalueと、optionのvalueが一致していれば、それが選択されていることになる。 */}
       <select
         value={selected}
         onChange={(e) => setSelected(e.target.value)}

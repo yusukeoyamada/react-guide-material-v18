@@ -10,6 +10,7 @@ const Example = () => {
 
   const [filterVal, setFilterVal] = useState("");
 
+  // 先にfilterをかけておき、それを子コンポーネントに渡す
   const filterdAnimals = animals.filter((animal) => {
     const isMatch = animal.indexOf(filterVal) !== -1;
     return isMatch;

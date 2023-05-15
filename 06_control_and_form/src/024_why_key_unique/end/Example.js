@@ -19,6 +19,8 @@ const Example = () => {
         <div>
           <strong>{`key={ユニークキー}`}</strong>
           <ul>
+            {/* 以下の配列のindexをkeyに設定した場合の問題点の観点から、
+            keyには、配列のindex以外の一意の値を設定するべき。 */}
             {inputs.map((input) => (
               <li key={input.key}>
                 {input.key}: {input.value}
@@ -29,6 +31,11 @@ const Example = () => {
         <div>
           <strong>{`key={index}`}</strong>
           <ul>
+            {/* 配列のindexをキーに設定すると
+              ・配列に要素を追加した際、indexに紐づく値が変わってしまう
+                (元のindexが0のものが、indexが1になってしまうので、それに伴って値も紐づかれる)
+              ・値がズレて紐づかれるので、余分な変更が発生し、パフォーマンスが多少悪くなる。
+            */}
             {inputs.map((input, index) => (
               <li key={index}>
                 {input.key}: {input.value}

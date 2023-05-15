@@ -3,7 +3,8 @@ import { useState } from "react";
 /* POINT 複数のstateの管理と使用上の注意点
  */
 const Example = () => {
-  /* POINT stateはトップレベル（if文などで囲まない）で呼ぶ
+  /* POINT stateは、トップレベル（if文、for文などで囲まない）で呼ぶ
+    トップレベルでない場合は、カスタムフックでも可能
   */
   /* POINT 複数のstateを取り扱う場合はそれぞれ名前を変更可能。 */
   console.log(<Example/>)

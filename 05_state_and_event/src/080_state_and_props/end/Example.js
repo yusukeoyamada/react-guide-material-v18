@@ -6,18 +6,27 @@ import { useState } from "react";
 
 const Example = () => {
   const [toggle, setToggle] = useState(true);
+
+  // 以下countのstateをCountコンポーネントから親コンポーネントに持ってきた。
   const [countA, setCountA] = useState(0);
   const [countB, setCountB] = useState(0);
+
   const toggleComponent = () => {
     setToggle((prev) => !prev);
   };
   return (
     <>
       <button onClick={toggleComponent}>toggle</button>
-      {toggle ? <Count key="A" title="A" count={countA} setCount={setCountA} /> : <Count key="B" title="B" count={countB} setCount={setCountB} />}
+      {/* 親コンポーネントで管理している、count, setCountを子コンポーネントに渡す */}
+      {/* これにより、toggleの変更に応じて、コンポーネントが消滅・生成されても、stateが初期化されず、引き継がれる。 */}
+      {toggle 
+        ? <Count key="A" title="A" count={countA} setCount={setCountA} /> 
+        : <Count key="B" title="B" count={countB} setCount={setCountB} />
+      }
     </>
   );
 };
+
 const Count = ({ title, count, setCount }) => {
   const countUp = () => {
     setCount((prevstate) => prevstate + 1);

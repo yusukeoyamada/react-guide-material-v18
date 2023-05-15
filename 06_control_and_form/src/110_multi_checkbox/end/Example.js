@@ -12,7 +12,10 @@ const Example = () => {
 
   const handleChange = (e) => {
     const newFruits = fruits.map((fruit) => {
+      // 別のオブジェクトを作成して、差分を変更して、それをstateに設定する方が良い。
       const newFruit = { ...fruit };
+      // 「e.target.value」は、newFruit.valueとは異なる。
+        // 下を見れば分かるが、labelが入っている。
       if (newFruit.label === e.target.value) {
         newFruit.checked = !fruit.checked;
       }
@@ -21,26 +24,30 @@ const Example = () => {
     });
 
     setFruits(newFruits);
-    // forEachバージョン
-    // let sumVal = 0;
-    // newFruits.forEach(fruit => {
-    //   if(fruit.checked) {
-    //     sumVal = sumVal + fruit.value;
-    //   }
-    // });
 
-    // filter + forEachバージョン
-    // let sumVal = 0;
-    // newFruits
-    //   .filter((fruit) => fruit.checked)
-    //   .forEach((fruit) => (sumVal = sumVal + fruit.value));
+    // 以下、sumを求める方法
+    // (1) forEachバージョン
+      // let sumVal = 0;
+      // newFruits.forEach(fruit => {
+      //   if(fruit.checked) {
+      //     sumVal += fruit.value;
+      //     // sumVal = sumVal + fruit.value;
+      //   }
+      // });
 
-    // filter + reduceバージョン
+    // (2) filter + forEachバージョン
+      // let sumVal = 0;
+      // newFruits
+      //   .filter((fruit) => fruit.checked)
+      //   .forEach((fruit) => (sumVal = sumVal + fruit.value));
+
+    // (3) filter + reduceバージョン
     let sumVal = newFruits
       .filter((fruit) => fruit.checked)
       .reduce((sumVal, fruit) => sumVal + fruit.value, 0);
     setSum(sumVal);
   };
+
   return (
     <div>
       {fruits.map((fruit) => {

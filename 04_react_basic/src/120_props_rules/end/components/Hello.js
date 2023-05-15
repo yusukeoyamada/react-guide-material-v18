@@ -4,6 +4,8 @@ const Hello = (props) => {
   // props.name = 'Bob';
   // エラーが発生！
 
+  // オブジェクトの設定状態を見たいときに、「Reflect.getOwnPropertyDescriptor」が使える。
+    // オブジェクトには、元々隠し設定(writableとか)がある
   // const desc = Reflect.getOwnPropertyDescriptor(props, 'name');
   // console.log(desc)
 

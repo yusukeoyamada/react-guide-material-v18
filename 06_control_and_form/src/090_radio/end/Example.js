@@ -11,6 +11,8 @@ const Example = () => {
     <>
       {RADIO_COLLECTION.map((value) => {
         return (
+          // 以下のように、labelでinputを囲む場合でも、紐づけられる。ただ、要素はデフォルトで横並びになる。
+            // 紐づいているので、labelを押下すると、radioが選択された状態になる。
           <label key={value}>
             <input
               type="radio"

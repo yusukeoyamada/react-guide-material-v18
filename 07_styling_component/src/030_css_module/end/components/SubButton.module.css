@@ -1,3 +1,8 @@
+/* クラスのみが、コンポーネントごとに適用されるようになる。
+「button」などのhtmlタグ自体に、styleを適用してしまうと、グローバルで適用されてしまう。 
+「#id」などのhtmlタグであれば問題ないが、基本的には使わない。classNameの方が良い。
+*/
+
 .btn {
     margin: auto;
     border-radius: 9999px;

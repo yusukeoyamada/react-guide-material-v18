@@ -28,6 +28,7 @@ const Example = () => {
 
       <ThirdButton>ボタン3</ThirdButton>
 
+      {/* 以下でいうpropsのdarkは、「dark={dark}」と同義 */}
       <ThirdButton dark>ボタン3</ThirdButton>
     </>
   );

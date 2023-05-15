@@ -8,11 +8,23 @@ const Example = () => {
   }
   return (
     <>
-    {/* POINT コンポーネントの位置によってstateが識別される */}
-    <button onClick={toggleComponent}>toggle</button>
-    {toggle ? <Count key="A" title="A"/> : <Count key="B" title="B"/>}
-    {/* <Count title="A"/>
-    {toggle && <Count title="B"/>} */}
+      <button onClick={toggleComponent}>toggle</button>
+
+      {/* POINT コンポーネントの位置によってstateが識別される */}
+      {/* 以下のような記載だと、Reactツリーの位置が同位置なので、stateが引き継がれてしまう。 */}
+        {/* {toggle ? <Count title="A"/> : <Count title="B"/>} */}
+      {/* なので、以下のように、一意の値を設定できるkeyを設定すると、Reactツリーの位置が同位置であっても、stateが引き継がれない */}
+        {/* ただし、toggleが変更されるごとに、初期化されるように。 */}
+      {toggle ? <Count key="A" title="A"/> : <Count key="B" title="B"/>}
+
+      {/* 以下のような記載だと、Reactツリーの位置が変わったとみなされるので、stateが引き継がれない。 */}
+        {/* ただし、toggleが変更されるごとに、初期化される */}
+      {/* {toggle ? <Count title="A"/> : <div><Count title="B"/></div>} */}
+
+      {/* 以下のような記載だと、stateが引き継がれない。 */}
+        {/* そして、Bだけtoggleが変更されるごとに、初期化される */}
+      {/* <Count title="A"/>
+      {toggle && <Count title="B"/>} */}
     </>
   )
 }

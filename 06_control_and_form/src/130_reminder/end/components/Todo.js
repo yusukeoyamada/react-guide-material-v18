@@ -22,6 +22,7 @@ const Todo = () => {
 
   const deleteTodo = (id) => {
     const newTodos = todos.filter((todo) => {
+      // 完了したtodoのidを使って、完了したtodoだけを弾いている。
       return todo.id !== id;
     });
 
