@@ -1,6 +1,7 @@
 import { useTheme } from "../context/ThemeContext"
 
 const Main = () => {
+  // 以下で、useContextを使用
   const [theme] = useTheme();
 
   return (

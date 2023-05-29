@@ -14,6 +14,10 @@ const Example = () => {
 }
 
 const Timer = () => {
+  // 以下のように、「use〇〇」と呼ばれる独自で作成した関数のことを、Custom Hookと呼ばれる。
+    // 端的にいうと、useStateや、useEffectを内部で呼んでいる関数のこと。
+      // 基本的に、useStateや、useEffectは、関数コンポーネントのトップレベル(returnより上)でしか呼べない。
+      // ただ、例外的に、Custom Hookの中では呼べる。
   const { time, isRunning, toggle, reset } = useTimer();
 
   return (

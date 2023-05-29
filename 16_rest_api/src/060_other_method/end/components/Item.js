@@ -10,6 +10,11 @@ const Item = ({ todo }) => {
 
   const toggleEditMode = () => {
     const newTodo = { ...todo, editing: !todo.editing };
+
+    // 以下を追加編集
+      // editingプロパティだけ変更している。
+    // なお、onDoubleClickイベントが発火したタイミングでtoggleEditMode内の処理が実行されることから、
+    // 副作用に当たらないと言える為、useEffectで囲む必要はない。
     todoApi.patch(newTodo).then((newTodo) => {
       dispatch({ type: "todo/update", todo: newTodo });
     });
@@ -22,12 +27,23 @@ const Item = ({ todo }) => {
       editing: !todo.editing,
       content: editingContent,
     };
+
+    // 以下を追加編集
+      // 引数に関して、「(newTodo) => {}」とせず、「() => {}」でも問題ない。
+        // 上記の場合だと、同じ中身な為。
+    // なお、onSubmitイベントが発火したタイミングでconfirmContent内の処理が実行されることから、
+    // 副作用に当たらないと言える為、useEffectで囲む必要はない。
     todoApi.patch(newTodo).then((newTodo) => {
       dispatch({ type: "todo/update", todo: newTodo });
     });
   };
 
+  // 以下を追加編集
   const complete = (todo) => {
+    // ここでは、「.post(newTodo)」と異なり、変更対象のtodoが返ってこないので、
+    // 「(todo) => {}」の「todo」を使用する。
+    // なお、onClickイベントが発火したタイミングでcomplete内の処理が実行されることから、
+    // 副作用に当たらないと言える為、useEffectで囲む必要はない。
     todoApi.delete(todo).then(() => {
       dispatch({ type: "todo/delete", todo });
     });

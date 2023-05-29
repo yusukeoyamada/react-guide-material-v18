@@ -24,6 +24,7 @@ const todosList = [
 
 const todoReducer = (todos, action) => {
   switch (action.type) {
+    // 以下を追加して、初期化する。
     case "todo/init":
       return [...action.todos];
 
@@ -50,7 +51,12 @@ const todoReducer = (todos, action) => {
 const TodoProvider = ({ children }) => {
   const [todos, dispatch] = useReducer(todoReducer, []);
 
+  // 以下を追加して、サーバーとの通信を行っている。
   useEffect(() => {
+    // 以下につき、awaitを使用する場合は、以下のように記載する。
+      // const todos = await todoApi.getAll();
+      // dispatch({ type: 'todo/init', todos });
+        // todosは、{ todos: todos }と同様。
     todoApi.getAll().then(todos => {
       dispatch({ type: 'todo/init', todos })
     })

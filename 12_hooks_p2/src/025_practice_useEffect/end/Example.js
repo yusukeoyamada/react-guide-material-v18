@@ -5,7 +5,9 @@ import { useState, useEffect } from "react";
 const Example = () => {
   const [checked, setChecked] = useState(false);
 
+  // checkedが変更される度に、第1引数のコールバック関数が実行される。
   useEffect(() => {
+    // checkedがtrueなら、右記が実行される。
     checked && window.alert("checked!");
   }, [checked]);
 

@@ -44,6 +44,7 @@ const Example = () => {
     `;
 
     const removeItemHandler = (e) => {
+      // 以下のように、イベントの監視を逐一削除する必要あり。
       e.target.removeEventListener("click", removeItemHandler);
       e.target.parentElement.remove();
     };

@@ -1,6 +1,6 @@
 import { useTheme, useUpdateTheme } from "../context/ThemeContext"
 
-
+// ここは、stateと、setThemeを利用するコンポーネント。
 const Header = () => {
   const theme = useTheme();
   const setTheme = useUpdateTheme();

@@ -1,5 +1,6 @@
 import { useTheme } from "../context/ThemeContext"
 
+// ここは、stateだけを利用するコンポーネント。
 const Main = () => {
   const theme = useTheme();
 

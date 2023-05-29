@@ -1,5 +1,6 @@
 const initialState = 0;
 
+// 以下、Reducer
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case "counter/+":
@@ -11,18 +12,19 @@ const reducer = (state = initialState, { type, payload }) => {
   }
 };
 
+// 以下、ActionCreater
+  // redux-toolkitでは、自動的に作成される。
 const add = (payload) => {
-    return {
-        type: "counter/+",
-        payload
-    }
+  return {
+    type: "counter/+",
+    payload
+  }
 }
-
 const minus = (payload) => {
-    return {
-        type: "counter/-",
-        payload
-    }
+  return {
+    type: "counter/-",
+    payload
+  }
 }
 
 export { reducer, add, minus }

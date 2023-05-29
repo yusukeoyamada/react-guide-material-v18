@@ -1,9 +1,13 @@
 import { useState } from "react";
 import { useDispatchTodos } from "../context/TodoContext";
+
 const Form = ({ createTodo }) => {
+  // FormFormコンポーネント内で使用するだけのstateなので、ここで管理。
   const [enteredTodo, setEnteredTodo] = useState("");
+
   const dispatch = useDispatchTodos();
 
+  // 以下、ローカル関数
   const addTodo = (e) => {
     e.preventDefault();
 
@@ -17,6 +21,7 @@ const Form = ({ createTodo }) => {
 
     setEnteredTodo("");
   };
+
   return (
     <div>
       <form onSubmit={addTodo}>

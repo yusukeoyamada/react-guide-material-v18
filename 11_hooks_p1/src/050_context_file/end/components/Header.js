@@ -2,6 +2,7 @@ import { useTheme } from "../context/ThemeContext"
 
 
 const Header = () => {
+  // 以下で、useContextを使用
   const [theme, setTheme] = useTheme();
 
   const THEMES = ["light", "dark", "red"];

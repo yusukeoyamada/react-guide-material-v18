@@ -10,7 +10,7 @@ const FnComp = ({name}) => {
 class Welcome extends Component {
   render() {
     return (
-       <h3>{this.props.name} Welcome Component</h3>
+      <h3>{this.props.name} Welcome Component</h3>
     );
   }
 }

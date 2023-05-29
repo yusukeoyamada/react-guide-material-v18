@@ -2,6 +2,8 @@
 import Counter from "./components/Counter";
 import { Provider } from "react-redux";
 import store from "./store"
+
+// immerを使用する場合
 import "./immer";
 
 const Example = () => {

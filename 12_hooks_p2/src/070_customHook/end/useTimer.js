@@ -1,5 +1,7 @@
 import { useState, useEffect, useLayoutEffect } from "react";
 
+// 以下は、Custom Hook
+  // ルールとしては、use〇〇という関数名にしないといけない。
 const useTimer = () => {
   const [time, setTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);

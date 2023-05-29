@@ -47,5 +47,9 @@
   },
   "devDependencies": {
     "json-server": "^0.17.0"
+  },
+  "volta": {
+    "node": "18.13.0",
+    "npm": "9.4.0"
   }
 }

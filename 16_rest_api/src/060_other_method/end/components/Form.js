@@ -15,6 +15,10 @@ const Form = () => {
       editing: false
     };
 
+    // 以下を追加編集
+      // newTodoに入ってくるものは、「.post(newTodo)」で引数に指定した「newTodo」
+    // なお、onSubmitイベントが発火したタイミングでaddTodo内の処理が実行されることから、
+    // 副作用に当たらないと言える為、useEffectで囲む必要はない。
     todoApi.post(newTodo).then(newTodo => {
       dispatch({ type: 'todo/add', todo: newTodo});
       setEnteredTodo("");

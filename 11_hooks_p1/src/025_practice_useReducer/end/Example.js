@@ -3,14 +3,22 @@ import { useReducer } from "react";
 
 const CALC_OPTIONS = ["add", "minus", "divide", "multiply"];
 
+// payload(付加情報): name, value
+  // reduxの書き方に準拠
 const reducer = (state, { type, payload }) => {
   switch (type) {
     case "change": {
       const { name, value } = payload;
+      // [name]: コンピューテッドプロパティ名（Computed Property Names）と呼ばれる構文。
+      // 動的にオブジェクトを変更する際に便利な構文
+        // nameの値に基づいて新しいプロパティを追加することが
+          // 例: nameが"a"なら、既存の「a」プロパティの値が更新される。
+          // 例: nameが"c"なら、新規の「c」プロパティが追加される。
+        // []を取ると、nameプロパティになるだけ、nameの中身をキーにしたい場合に使える。
       return { ...state, [name]: value };
     }
     case "add": {
-      return { ...state, result: state.a + state.b };
+      return { ...state, result: parseInt(state.a) + parseInt(state.b) };
     }
     case "minus": {
       return { ...state, result: state.a - state.b };
@@ -36,6 +44,7 @@ const Example = () => {
   const [state, dispatch] = useReducer(reducer, initState);
 
   const calculate = (e) => {
+    // ここでいう「e.target.value」は、optionのvalue。
     dispatch({type: e.target.value});
   };
   const numChangeHandler = (e) => {
@@ -61,6 +70,7 @@ const Example = () => {
           onChange={numChangeHandler}
         />
       </div>
+      {/* 「value={state.type}」は使用されていない。 */}
       <select value={state.type} name="type" onChange={calculate}>
         {CALC_OPTIONS.map((type) => (
           <option key={type} value={type}>
