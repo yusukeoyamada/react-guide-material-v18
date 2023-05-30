@@ -13,30 +13,40 @@ export default function Detail({ article }) {
   if (router.isFallback) {
     return <h3>Loading...</h3>;
   }
+
   return (
     <>
-        <Head>
-            <title>{article.title}</title>
-        </Head>
-        <Article data={article} />
+      <Head>
+        <title>{article.title}</title>
+      </Head>
+      <Article data={article} />
     </>
   );
 }
 
 export async function getStaticPaths() {
   const result = await axios.get(ENDPOINT).then((res) => res.data);
-
   if (!result) return;
 
-  const paths = result.map((article) => ({
-    params: { detail: `${article.id}` },
-  }));
+  // 以下がpathsのサンプル
+    // paths: [
+    //   { params: { id: "1" } }, 
+    //   { params: { id: "2" } }
+    // ]
+  const paths = result.map((article) => (
+    {
+      // 「article.id」は、文字列に
+      params: { detail: `${article.id}` },
+    }
+  ));
 
   return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }) {
+  // 末尾にidを追加する処理
   const url = `${ENDPOINT}/${params.detail}`;
   const result = await axios.get(url).then((res) => res.data);
+
   return { props: { article: result } };
 }
