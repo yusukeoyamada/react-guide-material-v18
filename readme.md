@@ -1,3 +1,7 @@
+# 当該リポジトリの対象学習教材
+- 「【2023年最新】React(v18)完全入門ガイド｜Hooks、Next.js、Redux、TypeScript」
+  - https://www.udemy.com/course/react-complete-guide/
+
 # 環境設定
 ## 使用するソフトウェア
 - Chrome - ブラウザ
