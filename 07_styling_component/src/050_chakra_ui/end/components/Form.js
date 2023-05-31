@@ -4,6 +4,7 @@ import { HStack, Input, Button, useToast } from "@chakra-ui/react";
 const Form = ({ createTodo }) => {
   const [enteredTodo, setEnteredTodo] = useState("");
 
+  // 画面上に表示されるダイアログのようなものを表示できるように
   const toast = useToast();
 
   const addTodo = (e) => {
@@ -12,9 +13,9 @@ const Form = ({ createTodo }) => {
     if (!enteredTodo) {
       toast({
         title: "新しいタスクを入力してください",
-        status: "error",
-        duration: 2000,
-        isClosable: true,
+        status: "error",  // ここで色を指定
+        duration: 2000,   // 表示する間隔
+        isClosable: true, // ダイアログの閉じるボタンを表示
       });
       return;
     }
@@ -43,10 +44,13 @@ const Form = ({ createTodo }) => {
         {/* POINT ChakraのInputコンポーネントを使う  */}
         <Input
           placeholder="新しいタスク"
+          // placeholderのスタイルを変更したい場合は、以下で
           _placeholder={{ opacity: "0.3", color: "gray.500" }}
           size="lg"
           p={3}
           bgColor="white"
+          // 以下で入力欄のスタイルを変更できる。
+            // 参考: https://chakra-ui.com/docs/components/input#changing-the-appearance-of-the-input
           variant="flushed"
           value={enteredTodo}
           onChange={(e) => setEnteredTodo(e.target.value)}
@@ -55,6 +59,7 @@ const Form = ({ createTodo }) => {
           colorScheme="blue"
           size="md"
           bgColor="white"
+          // 以下でボタンのスタイルを変更できる。
           variant="outline"
           px={7}
           type="submit"

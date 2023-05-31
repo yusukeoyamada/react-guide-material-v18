@@ -37,6 +37,7 @@ const Todo = () => {
 
   return (
     <VStack p="10" spacing="10">
+      {/* 見出しのような感じで、fontsizeを変えられる。 */}
       <Heading color="blue.200" fontSize="5xl">
         Reminder
       </Heading>
